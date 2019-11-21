@@ -5,8 +5,10 @@ import android.os.AsyncTask;
 
 import com.example.forumnuitdelinformatique.dao.CompanyDao;
 import com.example.forumnuitdelinformatique.dao.EmployeeDao;
+import com.example.forumnuitdelinformatique.dao.PropositionDao;
 import com.example.forumnuitdelinformatique.objet.Company;
 import com.example.forumnuitdelinformatique.objet.Employee;
+import com.example.forumnuitdelinformatique.objet.Proposition;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -14,10 +16,11 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Company.class, Employee.class}, version = 1)
+@Database(entities = {Company.class, Employee.class, Proposition.class}, version = 1)
 public abstract class ProjetRoomDatabase extends RoomDatabase{
     public abstract CompanyDao companyDao();
     public abstract EmployeeDao employeeDao();
+    public abstract PropositionDao propositionDao();
 
     private static volatile ProjetRoomDatabase INSTANCE;
 
@@ -50,23 +53,40 @@ public abstract class ProjetRoomDatabase extends RoomDatabase{
 
         private final CompanyDao mCompanyDao;
         private final EmployeeDao mEmployeeDao;
+        private final PropositionDao mPropositionDao;
 
         PopulateDbAsync(ProjetRoomDatabase db) {
             mCompanyDao = db.companyDao();
             mEmployeeDao = db.employeeDao();
+            mPropositionDao = db.propositionDao();
         }
 
         @Override
         protected Void doInBackground(final Void... params) {
+            mPropositionDao.deleteAll();
             mEmployeeDao.deleteAll();
             mCompanyDao.deleteAll();
 
             Company c1 = new Company();
             c1.setId(1);
-            c1.setNom("Entreprise test");
+            c1.setNom("Norsys");
             c1.setDescription("Description\nTest");
-            c1.setPostes("Offres postes :\n-dev java\n-dev php");
+            c1.setLogo(R.drawable.logo_norsys);
             mCompanyDao.insert(c1);
+
+            Company c2 = new Company();
+            c2.setId(2);
+            c2.setNom("Smile");
+            c2.setDescription("Description\nTest");
+            c2.setLogo(R.drawable.logo_smile);
+            mCompanyDao.insert(c2);
+
+            Company c3 = new Company();
+            c3.setId(3);
+            c3.setNom("Alten");
+            c3.setDescription("Description\nTest");
+            c3.setLogo(R.drawable.logo_alten);
+            mCompanyDao.insert(c3);
 
             Employee e1 = new Employee();
             e1.setCompanyId(c1.getId());
@@ -75,6 +95,27 @@ public abstract class ProjetRoomDatabase extends RoomDatabase{
             e1.setMail("test@test.fr");
             e1.setPoste("Dev java");
             mEmployeeDao.insert(e1);
+            Employee e2 = new Employee();
+            e2.setCompanyId(c1.getId());
+            e2.setNom("Nom test");
+            e2.setPrenom("Prenom test");
+            e2.setMail("test@test.fr");
+            e2.setPoste("RH");
+            mEmployeeDao.insert(e2);
+
+            Proposition p1 = new Proposition();
+            p1.setCompanyId(c1.getId());
+            p1.setDescription("Création logiciel pour afficher Hello World");
+            p1.setForm_search("L3 Info");
+            p1.setNom("Développeur Java");
+            mPropositionDao.insert(p1);
+            Proposition p2 = new Proposition();
+            p2.setCompanyId(c1.getId());
+            p2.setDescription("Création site");
+            p2.setForm_search("L2 Info");
+            p2.setNom("Développeur HTML");
+            mPropositionDao.insert(p2);
+
             return null;
         }
     }

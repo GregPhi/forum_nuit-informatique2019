@@ -23,7 +23,7 @@ public interface CompanyDao {
     @Query("DELETE FROM company_table")
     void deleteAll();
 
-    @Query("SELECT * from company_table ORDER BY nom ASC")
+    @Query("SELECT * from company_table ORDER BY not(interessed)")
     LiveData<List<Company>> getAllCompany();
 
     @Delete

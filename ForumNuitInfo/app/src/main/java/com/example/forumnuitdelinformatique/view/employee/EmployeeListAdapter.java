@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.forumnuitdelinformatique.InfoActivity;
 import com.example.forumnuitdelinformatique.MainActivity;
 import com.example.forumnuitdelinformatique.R;
 import com.example.forumnuitdelinformatique.objet.Employee;
@@ -53,6 +54,9 @@ public class EmployeeListAdapter extends RecyclerView.Adapter<EmployeeListAdapte
         } else {
             // Covers the case of data not being ready yet.
             holder.nomItemView.setText("Nom");
+            holder.prenomItemView.setText("Prénom");
+            holder.mailItemView.setText("Mail");
+            holder.postetemView.setText("Poste");
         }
     }
 

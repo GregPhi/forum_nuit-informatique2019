@@ -2,4 +2,14 @@
     <string name="app_name">Forum Nuit de l\'Informatique</string>
     <string name="company">Company</string>
     <string name="infos">Infos</string>
+    <string name="interess">Interessé ?</string>
+    <string name="supprimer">Supprimer</string>
+    <string name="description">Description</string>
+    <string name="formation_recherch_e">Formation recherchée</string>
+    <string name="proposition">Proposition</string>
+    <string name="employ_s">Employés :</string>
+    <string name="propositions">Propositions :</string>
+    <string name="cr_dits">Crédits</string>
+    <string name="textview3">Application créée pour le forum de la Nuit de l\'Informatique du 5 décembre 2019</string>
+    <string name="textView4">Application créée par Grégoire Philippot</string>
 </resources>

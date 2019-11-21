@@ -1,37 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:employee="@layout/recyclerview_employee_item"
+    xmlns:proposition="@layout/recyclerview_proposition_item"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/icon"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="131dp"
-        android:src="@drawable/ic_business_black_24dp" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/name_company"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/company" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="match_parent"
+                android:layout_height="131dp"
+                android:src="@drawable/ic_business_black_24dp" />
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Description" />
+            <TextView
+                android:id="@+id/name_company"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/company" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/serach"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Recherche" />
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/description" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/employ_s" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/infos_employees"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                employee:context=".InfoActivity"
+                employee:listitem="@layout/recyclerview_employee_item" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/propositions" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/infos_proposition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                proposition:context=".InfoActivity"
+                proposition:listitem="@layout/recyclerview_proposition_item" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

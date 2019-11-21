@@ -15,38 +15,34 @@ public class Company implements Parcelable {
     @NonNull
     private String nom;
     private String description;
-    private String postes;
-    private String logo;
+    private int logo;
+    private boolean interessed = false;
 
     public Company(){
         this.nom = "";
         this.description = "";
-        this.postes = "";
-        this.logo = "";
+        this.logo = -666;
     }
 
-    public Company(String n, String d, String p, String l){
+    public Company(String n, String d, int l){
         this.nom = n;
         this.description = d;
-        this.postes = p;
         this.logo = l;
     }
 
     public void setId(int i){ this.id = i;}
     public void setNom(String n){ this.nom = n;}
     public void setDescription(String d){ this.description = d;}
-    public void setPostes(String p){ this.postes = p;}
-    public void setLogo(String l){ this.logo = l; }
+    public void setLogo(int l){ this.logo = l; }
+    public void setInteressed(boolean i){ this.interessed = i;}
 
     public int getId(){ return this.id;}
     public String getNom(){
         return this.nom;
     }
-    public String getPostes(){
-        return this.postes;
-    }
     public String getDescription(){ return this.description; }
-    public String getLogo(){ return this.logo; }
+    public int getLogo(){ return this.logo; }
+    public boolean getInteressed(){ return this.interessed;}
 
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
         public Company createFromParcel(Parcel in) {
@@ -61,7 +57,6 @@ public class Company implements Parcelable {
     public Company(Parcel in){
         this.nom = in.readString();
         this.description = in.readString();
-        this.postes = in.readString();
     }
 
     @Override
@@ -73,6 +68,5 @@ public class Company implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.nom);
         dest.writeString(this.description);
-        dest.writeString(this.postes);
     }
 }

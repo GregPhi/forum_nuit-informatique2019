@@ -12,8 +12,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "employee_table",
         foreignKeys = @ForeignKey(entity = Company.class,
                                   parentColumns = "id",
-                                  childColumns = "company_id")
-)
+                                  childColumns = "company_id"))
 public class Employee implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)

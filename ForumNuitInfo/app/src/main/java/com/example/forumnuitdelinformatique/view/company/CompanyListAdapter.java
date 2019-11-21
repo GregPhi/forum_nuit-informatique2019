@@ -26,14 +26,18 @@ import androidx.recyclerview.widget.RecyclerView;
 public class CompanyListAdapter extends RecyclerView.Adapter<CompanyListAdapter.CompanyViewHolder> {
     class CompanyViewHolder extends RecyclerView.ViewHolder{
         private final ImageView logoItemView;
+        private final ImageView starItemView;
         private final TextView nomItemView;
         private final Button bI;
+        private final Button bInt;
 
         private CompanyViewHolder(final View itemView){
             super(itemView);
             logoItemView = itemView.findViewById(R.id.logo);
+            starItemView = itemView.findViewById(R.id.star);
             nomItemView = itemView.findViewById(R.id.name_company);
             bI = itemView.findViewById(R.id.info);
+            bInt = itemView.findViewById(R.id.interessed);
         }
     }
 
@@ -54,31 +58,30 @@ public class CompanyListAdapter extends RecyclerView.Adapter<CompanyListAdapter.
 
     @Override
     public void onBindViewHolder(CompanyViewHolder holder, int position) {
-        RecyclerView recyclerViewEmployee = holder.itemView.findViewById(R.id.recyclerview_employee);
-        final EmployeeListAdapter adapterEmpployee = new EmployeeListAdapter();
-        recyclerViewEmployee.setAdapter(adapterEmpployee);
-        recyclerViewEmployee.setLayoutManager(new LinearLayoutManager(null));
-
         if (mCompanys != null) {
             final Company current = mCompanys.get(position);
             holder.nomItemView.setText(current.getNom());
-            String logo = current.getLogo(); // R.drawable.name_logo
-            if(!logo.equals("")){
-                holder.logoItemView.setImageResource(Integer.valueOf(current.getLogo()));
+            int logo = current.getLogo(); // R.drawable.name_logo
+            if(logo != -666){
+                holder.logoItemView.setImageResource(logo);
+            }
+            boolean interessed = current.getInteressed();
+            if(interessed){
+                holder.starItemView.setImageResource(R.drawable.ic_star_black_24dp);
+            }
+            if(!interessed){
+                holder.starItemView.setImageResource(R.drawable.ic_star_border_black_24dp);
             }
             holder.bI.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
-                    //mContext.infoCompany(current);
+                    mContext.infoCompany(current);
                 }
             });
-
-            EmployeeViewModel mEmployeeViewModel = MainActivity.mEmployeeViewModel;
-            mEmployeeViewModel.getAllEmployeeForACompany(current).observe(null, new Observer<List<Employee>>() {
+            holder.bInt.setOnClickListener(new View.OnClickListener(){
                 @Override
-                public void onChanged(@Nullable final List<Employee> employees) {
-                    // Update the cached copy of the words in the adapter.
-                    adapterEmpployee.setEmployees(employees);
+                public void onClick(View view){
+                    mContext.intereesedCompany(current);
                 }
             });
         } else {

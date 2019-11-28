@@ -1,0 +1,129 @@
+.left {
+  float: left;
+  border: 1px solid black;
+  width: 45%;
+  height: 50%;
+  text-align: center;
+  clear: both;
+}
+
+img{
+  display: block;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.right {
+  float: right;
+  border: 1px solid black;
+  width: 45%;
+  height: 50%;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+}
+
+footer img{
+  max-width: 5%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	margin: 0; padding: 0;
+}
+body {
+	display : table;
+	width: 100%;
+}
+footer {
+	display : table-row;
+	height: 100px; /* à titre d'exemple */
+}
+
+/* http://pingouindesalpes.com/hugo/post/popup/#fermer */
+
+.cf:before,
+.cf:after {
+  content:"";
+  display:table;
+}
+.cf:after {
+  clear:both;
+}
+.droite {
+  float:right;
+}
+.display {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+   opacity:0;
+   -webkit-transition: opacity 400ms ease-in;
+   -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+.display:target {
+  opacity:1;
+  pointer-events: auto;
+}
+.display:target > div {
+  margin: 10% auto;
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+}
+.display > div {
+  max-width: 600px;
+  position: relative;
+  margin: 1% auto;
+  padding: 8px 8px 8px 8px;
+  border-radius: 5px;
+  background: #eee;
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+}
+.display > div header,.display > div footer {
+  border-bottom: 1px solid #e7e7e7;
+  border-radius: 5px 5px 0 0;
+}
+.display .footer {
+  border:none;
+  border-top: 1px solid #e7e7e7;
+  border-radius: 0 0 5px 5px;
+}
+.display > div h2 {
+  margin:0;
+}
+.display > div .btn {
+  float:right;
+}
+.display > div section,.display > div > header, .display > div > footer {
+  padding:15px;
+}
+
+.display > div {
+  overflow-y: auto;
+  max-height: 75%;
+}
+
+.display:target p{
+  text-align: justify;
+}

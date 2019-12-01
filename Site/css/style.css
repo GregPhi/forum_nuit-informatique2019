@@ -1,39 +1,3 @@
-.left {
-  float: left;
-  border: 1px solid black;
-  width: 45%;
-  height: 50%;
-  text-align: center;
-  clear: both;
-}
-
-img{
-  display: block;
-  width: auto;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.right {
-  float: right;
-  border: 1px solid black;
-  width: 45%;
-  height: 50%;
-  text-align: center;
-}
-
-footer {
-  text-align: center;
-}
-
-footer img{
-  max-width: 5%;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -48,8 +12,93 @@ body {
 	width: 100%;
 }
 footer {
-	display : table-row;
-	height: 100px; /* à titre d'exemple */
+	display : table-footer-group;
+	height: 20px; /* à titre d'exemple */
+  background-color: black;
+}
+#foot {
+  color : white;
+  text-transform : uppercase;
+}
+
+.left {
+  float: left;
+  border: 11px solid black;
+  width: 45%;
+  height: 50%;
+  text-align: center;
+  clear: both;
+  margin-bottom: 5px;
+  margin-left : 4%;
+  background-color: white;
+}
+
+#recrut{
+  color: black;
+}
+
+#id1 div, #id2 div, #id3 div, #id4 div, #id5 div, #id6 div {
+  background-color: whitesmoke;
+}
+
+body{
+  position: relative;
+  z-index: 10;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  background-image: url('../img/binaire.jpg');
+  background-attachment: fixed;
+  background-size: 100% 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+a:link{
+  text-decoration: none;
+  color: black;
+  border-bottom: 0px;
+  font-size: 20px;
+}
+
+a:visited{
+  color: black;
+}
+
+a:hover{
+  font-size: 21px;
+  border-bottom: 1px solid;
+}
+
+a:active{
+  color: purple;
+}
+
+.banderole{
+  display: block;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.right {
+  float: right;
+  border: 11px solid black;
+  width: 45%;
+  height: 50%;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-right : 4%;
+  background-color: white;
+}
+
+footer img{
+  max-width: 2%;
+  height: auto;
+  margin-left: 8%;
+  vertical-align: middle;
+  margin-right: 15px;
 }
 
 /* http://pingouindesalpes.com/hugo/post/popup/#fermer */
@@ -65,6 +114,26 @@ footer {
 .droite {
   float:right;
 }
+
+#id1 .droite {
+  color: grey;
+}
+#id2 .droite {
+  color: grey;
+}
+#id3 .droite {
+  color: grey;
+}
+#id4 .droite {
+  color: grey;
+}
+#id5 .droite {
+  color: grey;
+}
+#id6 .droite {
+  color: grey;
+}
+
 .display {
   position: fixed;
   z-index: 99999;
@@ -100,7 +169,7 @@ footer {
   -moz-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
 }
-.display > div header,.display > div footer {
+.display > div header {
   border-bottom: 1px solid #e7e7e7;
   border-radius: 5px 5px 0 0;
 }
@@ -115,7 +184,7 @@ footer {
 .display > div .btn {
   float:right;
 }
-.display > div section,.display > div > header, .display > div > footer {
+.display > div section,.display > div > header, {
   padding:15px;
 }
 

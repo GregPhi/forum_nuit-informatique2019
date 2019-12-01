@@ -25,10 +25,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class InfoActivity extends AppCompatActivity {
     public static EmployeeViewModel mEmployeeViewModel;
-    public static PropositionViewModel mPropositionViewModel;
 
     private ImageView mLogoImageView;
-    private TextView mNomTextView;
     private TextView mDescriptionTextView;
 
     @Override
@@ -40,18 +38,14 @@ public class InfoActivity extends AppCompatActivity {
         int id = intent.getIntExtra("Id",0);
         int l = intent.getIntExtra("Logo",-666);
 
-        String n = current.getNom();
         String d = current.getDescription();
-        System.out.println("logo :"+l);
         current.setId(id);
 
-        mNomTextView = findViewById(R.id.name_company);
         mDescriptionTextView = findViewById(R.id.description);
-        mLogoImageView = findViewById(R.id.logo);
-        mNomTextView.setText(n);
+        mLogoImageView = findViewById(R.id.icon);
         mDescriptionTextView.setText(d);
         if(l!=-666){
-            //mLogoImageView.setImageResource(l);
+            mLogoImageView.setImageResource(l);
         }
 
         RecyclerView recyclerViewEmployee = findViewById(R.id.infos_employees);
@@ -63,25 +57,9 @@ public class InfoActivity extends AppCompatActivity {
         mEmployeeViewModel.getAllEmployeeForACompany(current).observe(this, new Observer<List<Employee>>() {
             @Override
             public void onChanged(@Nullable final List<Employee> employees) {
-                System.out.println("taille liste emp : "+employees.size());
                 // Update the cached copy of the words in the adapter.
                 adapterEmployee.setEmployees(employees);
             }
         });
-
-        RecyclerView recyclerViewProposition = findViewById(R.id.infos_proposition);
-        final PropositionListAdapter adapterCompany = new PropositionListAdapter();
-        recyclerViewProposition.setAdapter(adapterCompany);
-        recyclerViewProposition.setLayoutManager(new LinearLayoutManager(this));
-
-        mPropositionViewModel = ViewModelProviders.of(this).get(PropositionViewModel.class);
-        mPropositionViewModel.getmAllPropositionForACompany(current).observe(this, new Observer<List<Proposition>>() {
-            @Override
-            public void onChanged(@Nullable final List<Proposition> propositions) {
-                // Update the cached copy of the words in the adapter.
-                adapterCompany.setPropositions(propositions);
-            }
-        });
-
     }
 }

@@ -49,6 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:contentDescription="@string/interess"
                 android:src="@drawable/ic_star_border_black_24dp" />
         </LinearLayout>
 

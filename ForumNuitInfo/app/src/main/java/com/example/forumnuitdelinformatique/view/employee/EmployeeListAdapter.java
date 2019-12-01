@@ -28,7 +28,9 @@ public class EmployeeListAdapter extends RecyclerView.Adapter<EmployeeListAdapte
             nomItemView = itemView.findViewById(R.id.name_employee);
             prenomItemView = itemView.findViewById(R.id.lastname);
             mailItemView = itemView.findViewById(R.id.mail);
+            mailItemView.setVisibility(View.INVISIBLE);
             postetemView = itemView.findViewById(R.id.poste);
+            postetemView.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -49,8 +51,14 @@ public class EmployeeListAdapter extends RecyclerView.Adapter<EmployeeListAdapte
             final Employee current = mEmployees.get(position);
             holder.nomItemView.setText(current.getNom());
             holder.prenomItemView.setText(current.getPrenom());
-            holder.mailItemView.setText(current.getMail());
-            holder.postetemView.setText(current.getPoste());
+            if(!current.getMail().equals("")){
+                holder.mailItemView.setText(current.getMail());
+                holder.mailItemView.setVisibility(View.VISIBLE);
+            }
+            if(!current.getPoste().equals("")){
+                holder.postetemView.setText(current.getPoste());
+                holder.postetemView.setVisibility(View.VISIBLE);
+            }
         } else {
             // Covers the case of data not being ready yet.
             holder.nomItemView.setText("Nom");

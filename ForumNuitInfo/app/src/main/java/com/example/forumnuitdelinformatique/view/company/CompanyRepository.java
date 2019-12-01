@@ -26,6 +26,16 @@ public class CompanyRepository {
         return mAllCompany;
     }
 
+    public Company getCompany(int id){
+        List<Company> list = mCompanyDao.getCmpanys();
+        Company company = null;
+        for(Company c : list){
+            if(c.getId() == id){
+                company = c;
+            }
+        }
+        return company;
+    }
 
     public void insert (Company employee) {
         new insertAsyncTask(mCompanyDao).execute(employee);

@@ -11,35 +11,29 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/icon"
                 android:layout_width="match_parent"
                 android:layout_height="131dp"
+                android:contentDescription="@string/desc"
                 android:src="@drawable/ic_business_black_24dp" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/name_company"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/company" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            -->
 
             <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/description" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/textView"
@@ -50,16 +44,12 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/infos_employees"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@android:color/darker_gray"
                 employee:context=".InfoActivity"
                 employee:listitem="@layout/recyclerview_employee_item" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
+            <!--<TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,6 +62,7 @@
                 android:background="@android:color/darker_gray"
                 proposition:context=".InfoActivity"
                 proposition:listitem="@layout/recyclerview_proposition_item" />
+            -->
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

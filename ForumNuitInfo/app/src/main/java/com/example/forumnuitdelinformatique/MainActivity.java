@@ -1,26 +1,22 @@
 package com.example.forumnuitdelinformatique;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.forumnuitdelinformatique.objet.Company;
-import com.example.forumnuitdelinformatique.objet.Employee;
 import com.example.forumnuitdelinformatique.view.company.CompanyListAdapter;
 import com.example.forumnuitdelinformatique.view.company.CompanyViewModel;
-import com.example.forumnuitdelinformatique.view.employee.EmployeeListAdapter;
-import com.example.forumnuitdelinformatique.view.employee.EmployeeViewModel;
 
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
     public static CompanyViewModel mCompanyViewModel;

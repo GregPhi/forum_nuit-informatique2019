@@ -3,47 +3,53 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="115dp"
-            android:layout_height="fill_parent"
-            android:src="@drawable/ic_account_box_black_24dp" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/name_employee"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nom" />
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="53dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_account_box_black_24dp" />
 
-            <TextView
-                android:id="@+id/lastname"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Prenom" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/mail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mail" />
+                <TextView
+                    android:id="@+id/name_employee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nom" />
 
-            <TextView
-                android:id="@+id/poste"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Poste" />
+                <TextView
+                    android:id="@+id/lastname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prenom" />
+
+                <TextView
+                    android:id="@+id/mail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mail" />
+
+                <TextView
+                    android:id="@+id/poste"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/poste" />
+            </LinearLayout>
+
+
         </LinearLayout>
+    </ScrollView>
 
-
-    </LinearLayout>
 </LinearLayout>

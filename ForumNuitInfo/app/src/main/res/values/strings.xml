@@ -12,4 +12,9 @@
     <string name="cr_dits">Crédits</string>
     <string name="textview3">Application créée pour le forum de la Nuit de l\'Informatique du 5 décembre 2019</string>
     <string name="textView4">Application créée par Grégoire Philippot</string>
+    <string name="desc">Logo de l\'entreprise</string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prenom</string>
+    <string name="mail">Mail</string>
+    <string name="poste">Poste</string>
 </resources>

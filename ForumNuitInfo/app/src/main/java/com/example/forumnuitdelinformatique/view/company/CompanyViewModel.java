@@ -31,4 +31,6 @@ public class CompanyViewModel extends AndroidViewModel {
 
     public void delete(Company company) { mRepository.delete(company); }
 
+    public Company getCompany(int id){ return mRepository.getCompany(id);}
+
 }

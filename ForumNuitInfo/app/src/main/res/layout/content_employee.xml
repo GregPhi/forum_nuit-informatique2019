@@ -12,7 +12,7 @@
         android:id="@+id/recyclerview_employee"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/darker_gray"
+        android:background="@color/blueAEI2"
         tools:listitem="@layout/recyclerview_employee_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

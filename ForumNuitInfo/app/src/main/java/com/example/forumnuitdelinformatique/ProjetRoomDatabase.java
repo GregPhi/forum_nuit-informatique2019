@@ -16,7 +16,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Company.class, Employee.class, Proposition.class}, version = 1)
+@Database(entities = {Company.class, Employee.class, Proposition.class}, version = 2)
 public abstract class ProjetRoomDatabase extends RoomDatabase{
     public abstract CompanyDao companyDao();
     public abstract EmployeeDao employeeDao();
@@ -67,54 +67,107 @@ public abstract class ProjetRoomDatabase extends RoomDatabase{
             mEmployeeDao.deleteAll();
             mCompanyDao.deleteAll();
 
-            Company c1 = new Company();
-            c1.setId(1);
-            c1.setNom("Norsys");
-            c1.setDescription("Description\nTest");
-            c1.setLogo(R.drawable.logo_norsys);
-            mCompanyDao.insert(c1);
+            Company norsys = new Company();
+            norsys.setId(1);
+            norsys.setNom("Norsys");
+            String descript = "Norsys est une ESN engagée de plus de 500 easymakers (collaborateurs), créée en 1994, spécialisée dans le conseil en assistance à maîtrise d’ouvrage et l’ingénierie informatique sur-mesure utilisant les dernières technologies  (JAVA EE, PHP, Angular, Nodejs...). \nEn 2019, norsys a été certifiée B Corp, ce qui démontre la réalité de son engagement sur le plan social et environnemental et intègre le cercle pionnier d'entreprises internationales très impliquées. \n";
+            norsys.setDescription(descript);
+            norsys.setLogo(R.drawable.logo_norsys);
+            mCompanyDao.insert(norsys);
 
-            Company c2 = new Company();
-            c2.setId(2);
-            c2.setNom("Smile");
-            c2.setDescription("Description\nTest");
-            c2.setLogo(R.drawable.logo_smile);
-            mCompanyDao.insert(c2);
+            Employee e1_norsys = new Employee();
+            e1_norsys.setPrenom("Mélanie");
+            e1_norsys.setNom("Wilfart");
+            e1_norsys.setCompanyId(norsys.getId());
+            Employee e2_norsys = new Employee();
+            e2_norsys.setPrenom("Denis");
+            e2_norsys.setNom("Cassoret");
+            e2_norsys.setCompanyId(norsys.getId());
+            mEmployeeDao.insert(e1_norsys);
+            mEmployeeDao.insert(e2_norsys);
 
-            Company c3 = new Company();
-            c3.setId(3);
-            c3.setNom("Alten");
-            c3.setDescription("Description\nTest");
-            c3.setLogo(R.drawable.logo_alten);
-            mCompanyDao.insert(c3);
+            Company smile = new Company();
+            smile.setId(2);
+            smile.setNom("Smile");
+            smile.setDescription("Description\nTest");
+            smile.setLogo(R.drawable.logo_smile);
+            mCompanyDao.insert(smile);
 
-            Employee e1 = new Employee();
-            e1.setCompanyId(c1.getId());
-            e1.setNom("Nom test");
-            e1.setPrenom("Prenom test");
-            e1.setMail("test@test.fr");
-            e1.setPoste("Dev java");
-            mEmployeeDao.insert(e1);
-            Employee e2 = new Employee();
-            e2.setCompanyId(c1.getId());
-            e2.setNom("Nom test");
-            e2.setPrenom("Prenom test");
-            e2.setMail("test@test.fr");
-            e2.setPoste("RH");
-            mEmployeeDao.insert(e2);
+            Company alten = new Company();
+            alten.setId(3);
+            alten.setNom("Alten");
+            alten.setDescription("Description\nTest");
+            alten.setLogo(R.drawable.logo_alten);
+            mCompanyDao.insert(alten);
 
-            Proposition p1 = new Proposition();
-            p1.setCompanyId(c1.getId());
-            p1.setDescription("Création logiciel pour afficher Hello World");
-            p1.setForm_search("L3 Info");
-            p1.setNom("Développeur Java");
-            mPropositionDao.insert(p1);
-            Proposition p2 = new Proposition();
-            p2.setCompanyId(c1.getId());
-            p2.setDescription("Création site");
-            p2.setForm_search("L2 Info");
-            p2.setNom("Développeur HTML");
-            mPropositionDao.insert(p2);
+            Company leroy_merlin = new Company();
+            leroy_merlin.setId(4);
+            leroy_merlin.setNom("Leroy Merlin");
+            leroy_merlin.setDescription("Description\nTest");
+            leroy_merlin.setLogo(R.drawable.logo_leroymerlin);
+            mCompanyDao.insert(leroy_merlin);
+
+            Employee e1_leroy_merlin = new Employee();
+            e1_leroy_merlin.setCompanyId(leroy_merlin.getId());
+            e1_leroy_merlin.setNom("Philippot");
+            e1_leroy_merlin.setPrenom("Ingrid");
+            e1_leroy_merlin.setMail("ingrid.philippot@leroymerlin.fr");
+            e1_leroy_merlin.setPoste("Responsable recrutement");
+            Employee e2_leroy_merlin = new Employee();
+            e2_leroy_merlin.setCompanyId(leroy_merlin.getId());
+            e2_leroy_merlin.setNom("Kusper");
+            e2_leroy_merlin.setPrenom("Michael");
+            e2_leroy_merlin.setMail("michael.kusper@leroymerlin.fr");
+            e2_leroy_merlin.setPoste("Responsable pôle data");
+            Employee e3_leroy_merlin = new Employee();
+            e3_leroy_merlin.setCompanyId(leroy_merlin.getId());
+            e3_leroy_merlin.setPrenom("Mathilde");
+            e3_leroy_merlin.setNom("Thomas");
+            e3_leroy_merlin.setMail("mathilde.thomas@leroymerlin.fr");
+            e3_leroy_merlin.setPoste("Chargée de communication");
+            Employee e4_leroy_merlin = new Employee();
+            e4_leroy_merlin.setCompanyId(leroy_merlin.getId());
+            e4_leroy_merlin.setNom("");
+            e4_leroy_merlin.setPrenom("");
+            e4_leroy_merlin.setMail("");
+            e4_leroy_merlin.setPoste("");
+            mEmployeeDao.insert(e1_leroy_merlin);
+            mEmployeeDao.insert(e2_leroy_merlin);
+            mEmployeeDao.insert(e3_leroy_merlin);
+            //mEmployeeDao.insert(e4_leroy_merlin);
+
+            Company davidson = new Company();
+            davidson.setId(5);
+            davidson.setNom("Davidson");
+            davidson.setDescription("Passionné(e) du monde IT ? Si tu as envie d’explorer les possibilités qui s’ouvrent à toi, viens nous rencontrer !\n Plus qu’une entreprise, notre objectif sera de t’accompagner et de construire ta carrière autour de tes envies : expertise technique, pilotage de projet, agile, qualité logicielle notamment… en échange on compte sur toi pour nous apporter du fun et ta joie de vivre !");
+            davidson.setLogo(R.drawable.logo_davidson);
+            mCompanyDao.insert(davidson);
+
+            Employee e1_davidson = new Employee();
+            e1_davidson.setCompanyId(davidson.getId());
+            e1_davidson.setNom("Sansen");
+            e1_davidson.setPrenom("Kevin");
+            e1_davidson.setPoste("Directeur associé");
+            Employee e2_davidson = new Employee();
+            e2_davidson.setCompanyId(davidson.getId());
+            e2_davidson.setNom("Haren");
+            e2_davidson.setPrenom("Guillaume");
+            e2_davidson.setPoste("Ingénieur d'affaires");
+            Employee e3_davidson = new Employee();
+            e3_davidson.setCompanyId(davidson.getId());
+            e3_davidson.setNom("Deleplanque");
+            e3_davidson.setPrenom("Dylan");
+            e3_davidson.setPoste("Ingénieur d'affaires");
+            mEmployeeDao.insert(e1_davidson);
+            mEmployeeDao.insert(e2_davidson);
+            mEmployeeDao.insert(e3_davidson);
+
+            Company capgemini = new Company();
+            capgemini.setId(6);
+            capgemini.setNom("Capgemini");
+            capgemini.setDescription("Description\nTest");
+            capgemini.setLogo(R.drawable.logo_capgemini);
+            mCompanyDao.insert(capgemini);
 
             return null;
         }

@@ -26,6 +26,9 @@ public interface CompanyDao {
     @Query("SELECT * from company_table ORDER BY not(interessed)")
     LiveData<List<Company>> getAllCompany();
 
+    @Query("SELECT * from company_table ORDER BY not(interessed)")
+    List<Company> getCmpanys();
+
     @Delete
     void delete(Company company);
 }
